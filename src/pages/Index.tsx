@@ -1,13 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { TaxHarvestingProvider } from '../context/TaxHarvestingContext';
+import Header from '../components/Header';
+import ImportantNotesDisclaimer from '../components/ImportantNotesDisclaimer';
+import CapitalGainsCards from '../components/CapitalGainsCards';
+import HoldingsTable from '../components/HoldingsTable';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <TaxHarvestingProvider>
+      <div className="min-h-screen bg-gray-100">
+        <Header />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Tax Harvesting</h1>
+            <div className="flex items-center space-x-2">
+              <button className="text-blue-600 hover:text-blue-800 underline text-sm">
+                How it works?
+              </button>
+            </div>
+          </div>
+
+          <ImportantNotesDisclaimer />
+          <CapitalGainsCards />
+          <HoldingsTable />
+        </div>
       </div>
-    </div>
+    </TaxHarvestingProvider>
   );
 };
 
