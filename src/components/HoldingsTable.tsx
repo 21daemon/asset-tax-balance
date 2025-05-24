@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
@@ -28,10 +28,21 @@ const HoldingsTable = () => {
   const { state, dispatch } = useTaxHarvesting();
   const { holdings, selectedHoldings, loading } = state;
   const [showAll, setShowAll] = useState(false);
+  const selectAllCheckboxRef = useRef<HTMLButtonElement>(null);
 
   const displayedHoldings = showAll ? holdings : holdings.slice(0, 6);
   const allSelected = selectedHoldings.size === holdings.length;
   const someSelected = selectedHoldings.size > 0 && selectedHoldings.size < holdings.length;
+
+  // Handle indeterminate state for select all checkbox
+  useEffect(() => {
+    if (selectAllCheckboxRef.current) {
+      const checkboxElement = selectAllCheckboxRef.current.querySelector('input[type="checkbox"]') as HTMLInputElement;
+      if (checkboxElement) {
+        checkboxElement.indeterminate = someSelected;
+      }
+    }
+  }, [someSelected]);
 
   const handleSelectAll = () => {
     dispatch({ type: 'TOGGLE_ALL_HOLDINGS' });
@@ -70,10 +81,8 @@ const HoldingsTable = () => {
               <tr>
                 <th className="text-left py-4 px-6 font-medium text-gray-600">
                   <Checkbox
+                    ref={selectAllCheckboxRef}
                     checked={allSelected}
-                    ref={(ref) => {
-                      if (ref) ref.indeterminate = someSelected;
-                    }}
                     onCheckedChange={handleSelectAll}
                     className="mr-2"
                   />
