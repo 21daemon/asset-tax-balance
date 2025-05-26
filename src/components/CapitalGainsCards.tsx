@@ -56,46 +56,29 @@ const CapitalGainsCards = () => {
         <CardHeader className="pb-4">
           <CardTitle className="text-xl font-semibold">Pre Harvesting</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div className="text-center">
-              <div className="text-gray-600 dark:text-gray-300 mb-1">Short-term</div>
-            </div>
-            <div className="text-center">
-              <div className="text-gray-600 dark:text-gray-300 mb-1">Long-term</div>
-            </div>
+        <CardContent className="space-y-6">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium"></div>
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">Short-term</div>
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">Long-term</div>
           </div>
           
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm mb-1">Profits</div>
-                <div className="font-semibold">{formatCurrency(originalCapitalGains.stcg.profits)}</div>
-              </div>
-              <div>
-                <div className="font-semibold">{formatCurrency(originalCapitalGains.ltcg.profits)}</div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm mb-1">Losses</div>
-                <div className="font-semibold">- {formatCurrency(originalCapitalGains.stcg.losses)}</div>
-              </div>
-              <div>
-                <div className="font-semibold">- {formatCurrency(originalCapitalGains.ltcg.losses)}</div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm mb-1">Net Capital Gains</div>
-                <div className="font-semibold">{formatCurrency(originalNetSTCG)}</div>
-              </div>
-              <div>
-                <div className="font-semibold">{formatCurrency(originalNetLTCG)}</div>
-              </div>
-            </div>
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">Profits</div>
+            <div className="text-center font-semibold">{formatCurrency(originalCapitalGains.stcg.profits)}</div>
+            <div className="text-center font-semibold">{formatCurrency(originalCapitalGains.ltcg.profits)}</div>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">Losses</div>
+            <div className="text-center font-semibold">- {formatCurrency(originalCapitalGains.stcg.losses)}</div>
+            <div className="text-center font-semibold">- {formatCurrency(originalCapitalGains.ltcg.losses)}</div>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">Net Capital Gains</div>
+            <div className="text-center font-semibold">{formatCurrency(originalNetSTCG)}</div>
+            <div className="text-center font-semibold">{formatCurrency(originalNetLTCG)}</div>
           </div>
           
           <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
@@ -112,46 +95,29 @@ const CapitalGainsCards = () => {
         <CardHeader className="pb-4">
           <CardTitle className="text-xl font-semibold">After Harvesting</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div className="text-center">
-              <div className="text-blue-100 mb-1">Short-term</div>
-            </div>
-            <div className="text-center">
-              <div className="text-blue-100 mb-1">Long-term</div>
-            </div>
+        <CardContent className="space-y-6">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="text-blue-100 text-sm font-medium"></div>
+            <div className="text-blue-100 text-sm font-medium">Short-term</div>
+            <div className="text-blue-100 text-sm font-medium">Long-term</div>
           </div>
           
-          <div className="space-y-3">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-blue-100 text-sm mb-1">Profits</div>
-                <div className="font-semibold">{formatCurrency(currentCapitalGains.stcg.profits)}</div>
-              </div>
-              <div>
-                <div className="font-semibold">{formatCurrency(currentCapitalGains.ltcg.profits)}</div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-blue-100 text-sm mb-1">Losses</div>
-                <div className="font-semibold">- {formatCurrency(currentCapitalGains.stcg.losses)}</div>
-              </div>
-              <div>
-                <div className="font-semibold">- {formatCurrency(currentCapitalGains.ltcg.losses)}</div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <div className="text-blue-100 text-sm mb-1">Net Capital Gains</div>
-                <div className="font-semibold">- {formatCurrency(Math.abs(currentNetSTCG))}</div>
-              </div>
-              <div>
-                <div className="font-semibold">- {formatCurrency(Math.abs(currentNetLTCG))}</div>
-              </div>
-            </div>
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-blue-100 text-sm font-medium">Profits</div>
+            <div className="text-center font-semibold">{formatCurrency(currentCapitalGains.stcg.profits)}</div>
+            <div className="text-center font-semibold">{formatCurrency(currentCapitalGains.ltcg.profits)}</div>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-blue-100 text-sm font-medium">Losses</div>
+            <div className="text-center font-semibold">- {formatCurrency(currentCapitalGains.stcg.losses)}</div>
+            <div className="text-center font-semibold">- {formatCurrency(currentCapitalGains.ltcg.losses)}</div>
+          </div>
+          
+          <div className="grid grid-cols-3 gap-4 items-center">
+            <div className="text-blue-100 text-sm font-medium">Net Capital Gains</div>
+            <div className="text-center font-semibold">- {formatCurrency(Math.abs(currentNetSTCG))}</div>
+            <div className="text-center font-semibold">- {formatCurrency(Math.abs(currentNetLTCG))}</div>
           </div>
           
           <div className="pt-4 border-t border-blue-400">
@@ -170,7 +136,7 @@ const CapitalGainsCards = () => {
         </CardContent>
       </Card>
 
-      {/* Third Card - Summary or Additional Info */}
+      {/* Third Card - Tax Summary */}
       <Card className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700">
         <CardHeader className="pb-4">
           <CardTitle className="text-xl font-semibold">Tax Summary</CardTitle>
