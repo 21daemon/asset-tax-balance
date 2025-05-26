@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTaxHarvesting } from '../context/TaxHarvestingContext';
@@ -18,7 +17,7 @@ const CapitalGainsCards = () => {
 
   if (!originalCapitalGains || !currentCapitalGains) {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         <Card className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white animate-pulse">
           <CardContent className="p-6">
             <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded"></div>
@@ -27,11 +26,6 @@ const CapitalGainsCards = () => {
         <Card className="koinx-blue text-white animate-pulse">
           <CardContent className="p-6">
             <div className="h-64 bg-blue-700 rounded"></div>
-          </CardContent>
-        </Card>
-        <Card className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white animate-pulse">
-          <CardContent className="p-6">
-            <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded"></div>
           </CardContent>
         </Card>
       </div>
@@ -50,7 +44,7 @@ const CapitalGainsCards = () => {
   const showSavings = savings > 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
       {/* Pre Harvesting Card */}
       <Card className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700">
         <CardHeader className="pb-4">
@@ -132,35 +126,6 @@ const CapitalGainsCards = () => {
                 <span className="font-medium">You are going to save upto {formatCurrency(savings)}</span>
               </div>
             )}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Third Card - Tax Summary */}
-      <Card className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700">
-        <CardHeader className="pb-4">
-          <CardTitle className="text-xl font-semibold">Tax Summary</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-3">
-            <div>
-              <div className="text-gray-600 dark:text-gray-300 text-sm mb-1">Original Tax Liability</div>
-              <div className="font-semibold">{formatCurrency(originalRealisedGains * 0.3)}</div>
-            </div>
-            
-            <div>
-              <div className="text-gray-600 dark:text-gray-300 text-sm mb-1">After Harvesting Tax</div>
-              <div className="font-semibold">{formatCurrency(Math.max(0, currentRealisedGains * 0.3))}</div>
-            </div>
-            
-            <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold">Tax Savings:</span>
-                <span className="text-xl font-bold text-green-600 dark:text-green-400">
-                  {formatCurrency(Math.max(0, (originalRealisedGains - Math.max(0, currentRealisedGains)) * 0.3))}
-                </span>
-              </div>
-            </div>
           </div>
         </CardContent>
       </Card>
